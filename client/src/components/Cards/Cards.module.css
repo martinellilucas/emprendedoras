@@ -1,0 +1,15 @@
+.tabla {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tabla th,
+.tabla td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.tabla th {
+  background-color: #f2f2f2;
+}
