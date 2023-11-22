@@ -1,4 +1,5 @@
 import style from "./Cards.module.css";
+import { Link } from "react-router-dom";
 
 const Cards = ({ emprendedoras }) => {
   return (
@@ -13,7 +14,7 @@ const Cards = ({ emprendedoras }) => {
           <th>Provincia</th>
           <th>Telefono</th>
           <th>Categoria</th>
-          <th>Editar</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -39,7 +40,9 @@ const Cards = ({ emprendedoras }) => {
                 <td>{tel}</td>
                 <td>{categoria}</td>
                 <td>
-                  <button>Editar</button>
+                  <Link to={`/detail/${codigoEmprendedora}`}>
+                    <button className={style.button}>Ver Ficha</button>
+                  </Link>
                 </td>
               </tr>
             );

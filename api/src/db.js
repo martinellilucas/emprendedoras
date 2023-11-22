@@ -38,6 +38,14 @@ let capsEntries = entries.map((entry) => [
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Emprendedoras } = sequelize.models;
-
+const { Emprendedora, Ciclo, Comentario } = sequelize.models;
+Comentario.belongsTo(Emprendedora, { foreignKey: "codigoEmprendedora" });
+Emprendedora.belongsToMany(Ciclo, {
+  through: "EmprendedoraCiclo",
+  timestamps: false,
+});
+Ciclo.belongsToMany(Emprendedora, {
+  through: "EmprendedoraCiclo",
+  timestamps: false,
+});
 module.exports = { ...sequelize.models, conn: sequelize };

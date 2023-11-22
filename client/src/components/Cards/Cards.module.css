@@ -13,3 +13,10 @@
 .tabla th {
   background-color: #f2f2f2;
 }
+
+.button {
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
+}

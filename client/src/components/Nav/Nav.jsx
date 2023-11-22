@@ -3,11 +3,11 @@ import style from "./Nav.module.css";
 
 const Nav = () => {
   return (
-    <div>
-      <Link to="/">
+    <div className={style.container}>
+      <Link className={style.span} to="/">
         <span>Inicio</span>
       </Link>
-      <Link to="/form">
+      <Link className={style.span} to="/form">
         <span>Sumar emprendedora</span>
       </Link>
     </div>

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-size: 3em;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.input {
+  font-size: 1.3em;
+  font-family: "Titillium Web", sans-serif;
+  border-radius: 4px;
+  padding: 3px;
+  width: 15.5%;
+}
+
+.separador {
+  border: 5px solid grey;
+}

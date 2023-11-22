@@ -18,11 +18,14 @@ const Home = ({ currentPage, setCurrentPage }) => {
   }, [dispatch]);
   return (
     <div>
-      <div>
-        <h1>Emprendedoras</h1>
-        <input placeholder="Buscar por codigo de emprendedora"></input>
+      <div className={style.container}>
+        <h1 className={style.title}>Emprendedoras</h1>
+        <input
+          className={style.input}
+          placeholder="Buscar por codigo de emprendedora"
+        ></input>
       </div>
-      <hr></hr>
+      <hr className={style.separador} />
       <Pagination
         emprendedorasPerPage={emprendedorasPerPage}
         currentPage={currentPage}

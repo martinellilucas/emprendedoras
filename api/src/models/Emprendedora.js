@@ -25,6 +25,7 @@ module.exports = (sequelize) => {
     },
     tel: {
       type: DataTypes.STRING,
+      unique: true,
     },
     categoria: {
       type: DataTypes.ENUM,
