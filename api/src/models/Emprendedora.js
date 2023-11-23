@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     otrasActividades: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
     localidad: {
       type: DataTypes.STRING,

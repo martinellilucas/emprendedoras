@@ -3,6 +3,7 @@ import {
   CLEAN_DETAIL,
   GET_COMENTARIOS,
   GET_EMPRENDEDORAS,
+  SEARCH,
 } from "./actions";
 
 const initialState = {
@@ -26,6 +27,18 @@ const reducer = (state = initialState, action) => {
       return { ...state, emprendedoraDetail: { ...action.payload } };
     case GET_COMENTARIOS:
       return { ...state, comentarios: [...action.payload] };
+    case SEARCH:
+      return {
+        ...state,
+        allEmprendedoras: [...state.emprendedoras],
+        emprendedoras: [
+          ...state.allEmprendedoras.filter((emprendedora) =>
+            emprendedora.codigoEmprendedora
+              .toString()
+              .startsWith(action.payload)
+          ),
+        ],
+      };
     default:
       return { ...state };
   }

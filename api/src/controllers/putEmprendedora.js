@@ -5,14 +5,18 @@ const putEmprendedora = async (
   otrasActividades,
   categoria
 ) => {
-  const emprendedora = await Emprendedora.update(
+  const emprendedora = await Emprendedora.findOne({
+    where: { codigoEmprendedora },
+  });
+  const actividades = emprendedora.otrasActividades.concat(otrasActividades);
+  const emprendedoraUpdate = await Emprendedora.update(
     {
-      otrasActividades: otrasActividades,
+      otrasActividades: [...actividades],
       categoria: categoria,
     },
     { where: { codigoEmprendedora: codigoEmprendedora } }
   );
-  return emprendedora;
+  return emprendedoraUpdate;
 };
 
 module.exports = putEmprendedora;

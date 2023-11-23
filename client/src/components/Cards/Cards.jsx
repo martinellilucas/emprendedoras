@@ -30,11 +30,16 @@ const Cards = ({ emprendedoras }) => {
             categoria,
           }) => {
             return (
-              <tr>
+              <tr key={codigoEmprendedora}>
                 <td>{codigoEmprendedora}</td>
                 <td>{nombre}</td>
                 <td>{cicloAlta}</td>
-                <td>{otrasActividades}</td>
+                <td>
+                  {otrasActividades.map((element) => {
+                    return <li>{element}</li>;
+                  })}
+                </td>
+
                 <td>{localidad}</td>
                 <td>{provincia}</td>
                 <td>{tel}</td>

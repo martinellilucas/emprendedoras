@@ -3,16 +3,24 @@ import Cards from "../Cards/Cards";
 import style from "./Home.module.css";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination/Pagination";
-import { getEmprendedoras } from "../../redux/actions";
+import { getEmprendedoras, searchEmprendedora } from "../../redux/actions";
 
 const Home = ({ currentPage, setCurrentPage }) => {
   const dispatch = useDispatch();
   const { emprendedoras } = useSelector((state) => state);
   const [emprendedorasPerPage] = useState(10);
+  const [search, setSearch] = useState("");
   const totalEmprendedoras = emprendedoras.length;
   const lastIndex = currentPage * emprendedorasPerPage;
   const firstIndex = lastIndex - emprendedorasPerPage;
 
+  const handleClick = () => {
+    setCurrentPage(1);
+    dispatch(searchEmprendedora(search));
+  };
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
   useEffect(() => {
     dispatch(getEmprendedoras());
   }, [dispatch]);
@@ -20,10 +28,18 @@ const Home = ({ currentPage, setCurrentPage }) => {
     <div>
       <div className={style.container}>
         <h1 className={style.title}>Emprendedoras</h1>
-        <input
-          className={style.input}
-          placeholder="Buscar por codigo de emprendedora"
-        ></input>
+        <div className={style.searchBar}>
+          <input
+            className={style.input}
+            placeholder="Buscar por codigo"
+            type="search"
+            value={search}
+            onChange={handleChange}
+          ></input>
+          <button onClick={handleClick} className={style.button}>
+            🔍
+          </button>
+        </div>
       </div>
       <hr className={style.separador} />
       <Pagination

@@ -14,6 +14,7 @@
   justify-content: space-evenly;
   border: 1px solid black;
   width: 35%;
+  padding: 25px;
 }
 
 .columna {
@@ -21,7 +22,8 @@
 }
 
 .subTitle {
-  font-size: 2em;
+  font-size: 1.5em;
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -38,4 +40,11 @@
   padding: 5px 10px;
   cursor: pointer;
   font-family: "Titillium Web", sans-serif;
+}
+.itemList {
+  list-style: upper-roman;
+  font-size: 1.3em;
+}
+.dato {
+  font-size: 1.4em;
 }

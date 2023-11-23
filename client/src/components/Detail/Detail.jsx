@@ -41,19 +41,23 @@ const Detail = () => {
         </div>
         <hr />
         <div className={style.columna}>
-          <h1>{emprendedoraDetail.codigoEmprendedora}</h1>
-          <h1>{emprendedoraDetail.cicloAlta}</h1>
-          <h1>{emprendedoraDetail.localidad}</h1>
-          <h1>{emprendedoraDetail.provincia}</h1>
-          <h1>{emprendedoraDetail.tel}</h1>
-          <h1>{emprendedoraDetail.otrasActividades}</h1>
-          <h1>{emprendedoraDetail.categoria}</h1>
+          <h1 className={style.dato}>
+            {emprendedoraDetail.codigoEmprendedora}
+          </h1>
+          <h1 className={style.dato}>{emprendedoraDetail.cicloAlta}</h1>
+          <h1 className={style.dato}>{emprendedoraDetail.localidad}</h1>
+          <h1 className={style.dato}>{emprendedoraDetail.provincia}</h1>
+          <h1 className={style.dato}>{emprendedoraDetail.tel}</h1>
+          {emprendedoraDetail.otrasActividades?.map((e) => {
+            return <li className={style.itemList}>{e}</li>;
+          })}
+          <h1 className={style.dato}>{emprendedoraDetail.categoria}</h1>
           {comentarios.map((element) => {
             return (
-              <ul>
-                <li>Autor: {element.autor}</li>
-                <li>Texto: {element.texto}</li>
-                <li>Fecha: {element.createdAt}</li>
+              <ul key={element.id}>
+                <li className={style.itemList}>Autor: {element.autor}</li>
+                <li className={style.itemList}>Texto: {element.texto}</li>
+                <li className={style.itemList}>Fecha: {element.createdAt}</li>
               </ul>
             );
           })}

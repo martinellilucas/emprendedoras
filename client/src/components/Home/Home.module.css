@@ -8,15 +8,24 @@
   font-size: 3em;
   font-family: "Titillium Web", sans-serif;
 }
-
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .input {
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-family: "Titillium Web", sans-serif;
   border-radius: 4px;
-  padding: 3px;
-  width: 15.5%;
+  padding: 1px 25px;
+  margin: 10px;
 }
 
 .separador {
   border: 5px solid grey;
+}
+.button {
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
 }
