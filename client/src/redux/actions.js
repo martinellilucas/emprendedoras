@@ -6,6 +6,7 @@ export const ADD_DETAIL = "ADD_DETAIL";
 export const GET_COMENTARIOS = "GET_COMENTARIOS";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const SEARCH = "SEARCH";
+export const GET_CICLOS = "GET_CICLOS";
 
 export const searchEmprendedora = (codigoEmprendedora) => {
   console.log(codigoEmprendedora);
@@ -50,5 +51,14 @@ export const getComentarios = (codigoEmprendedora) => {
 export const cleanDetail = () => {
   return function (dispatch) {
     dispatch({ type: CLEAN_DETAIL });
+  };
+};
+
+export const getCiclos = (codigoEmprendedora) => {
+  return async function (dispatch) {
+    const response = await axios.get(
+      `http://localhost:3001/ciclos/${codigoEmprendedora}`
+    );
+    dispatch({ type: GET_CICLOS, payload: response.data });
   };
 };

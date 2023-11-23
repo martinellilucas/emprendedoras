@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { addDetail, cleanDetail, getComentarios } from "../../redux/actions";
 import PopUp from "../PopUp/PopUp";
 import Edit from "../EditEmprendedora/Edit";
+import Ciclo from "../Ciclos/Ciclo";
 const Detail = () => {
   const { emprendedoraDetail, comentarios } = useSelector((state) => state);
   const { codigoEmprendedora } = useParams();
@@ -12,8 +13,12 @@ const Detail = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenEdit, setIsOpenEdit] = useState(false);
+  const [isOpenCiclo, setIsOpenCiclo] = useState(false);
   const togglePopUp = () => {
     setIsOpen(!isOpen);
+  };
+  const toggleCiclo = () => {
+    setIsOpenCiclo(!isOpenCiclo);
   };
   const toggleEdit = () => {
     setIsOpenEdit(!isOpenEdit);
@@ -37,7 +42,6 @@ const Detail = () => {
           <h1 className={style.subTitle}>Teléfono</h1>
           <h1 className={style.subTitle}>Actividades Extras</h1>
           <h1 className={style.subTitle}>Categoria de emprendedora</h1>
-          <h1 className={style.subTitle}>Comentarios</h1>
         </div>
         <hr />
         <div className={style.columna}>
@@ -52,27 +56,57 @@ const Detail = () => {
             return <li className={style.itemList}>{e}</li>;
           })}
           <h1 className={style.dato}>{emprendedoraDetail.categoria}</h1>
-          {comentarios.map((element) => {
-            return (
-              <ul key={element.id}>
-                <li className={style.itemList}>Autor: {element.autor}</li>
-                <li className={style.itemList}>Texto: {element.texto}</li>
-                <li className={style.itemList}>Fecha: {element.createdAt}</li>
-              </ul>
-            );
-          })}
         </div>
       </div>
-      <div className={style.botonera}>
-        <button className={style.button} onClick={togglePopUp}>
-          Agregar comentario
-        </button>
-        {isOpen && <PopUp handleClose={togglePopUp} />}
-        <button className={style.button} onClick={toggleEdit}>
-          Editar
-        </button>
-        {isOpenEdit && <Edit handleClose={toggleEdit} />}
-      </div>
+      <button className={style.button} onClick={toggleEdit}>
+        Editar
+      </button>
+      {isOpenEdit && <Edit handleClose={toggleEdit} />}
+
+      <h1 className={style.subTitle}>Comentarios</h1>
+      <hr className={style.separador} />
+      {comentarios?.map((element) => {
+        return (
+          <ul key={element.id}>
+            <li className={style.itemList}>Autor: {element.autor}</li>
+            <li className={style.itemList}>Texto: {element.texto}</li>
+            <li className={style.itemList}>Fecha: {element.createdAt}</li>
+          </ul>
+        );
+      })}
+
+      <button className={style.button} onClick={togglePopUp}>
+        Agregar comentario
+      </button>
+      {isOpen && <PopUp handleClose={togglePopUp} />}
+      <h1 className={style.subTitle}>Ciclos</h1>
+      <hr className={style.separador} />
+      <table className={style.tabla}>
+        <thead>
+          <tr>
+            <th>Ciclo</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {emprendedoraDetail.nombre ? (
+            emprendedoraDetail?.Ciclos.map(({ ciclo, puntos }) => {
+              return (
+                <tr key={ciclo}>
+                  <td>{ciclo}</td>
+                  <td>{puntos}</td>
+                </tr>
+              );
+            })
+          ) : (
+            <h1 className={style.subTitle}>Cargando..</h1>
+          )}
+        </tbody>
+      </table>
+      <button className={style.button} onClick={toggleCiclo}>
+        Agregar ciclo
+      </button>
+      {isOpenCiclo && <Ciclo handleClose={toggleCiclo} />}
     </div>
   );
 };

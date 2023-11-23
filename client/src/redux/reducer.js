@@ -11,6 +11,7 @@ const initialState = {
   allEmprendedoras: [],
   emprendedoraDetail: {},
   comentarios: [],
+  ciclos: [],
 };
 
 const reducer = (state = initialState, action) => {

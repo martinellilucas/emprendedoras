@@ -42,9 +42,30 @@
   font-family: "Titillium Web", sans-serif;
 }
 .itemList {
-  list-style: upper-roman;
+  list-style: none;
   font-size: 1.3em;
 }
 .dato {
-  font-size: 1.4em;
+  font-size: 1.5em;
+}
+.separador {
+  border: 5px solid grey;
+  width: 60%;
+}
+
+.tabla {
+  border-collapse: collapse;
+  width: 40%;
+  margin: 30px;
+}
+.tabla th,
+.tabla td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.tabla th {
+  background-color: #f2f2f2;
 }
