@@ -9,31 +9,6 @@
 .title {
   font-size: 3em;
 }
-.table {
-  display: flex;
-  justify-content: space-evenly;
-  border: 1px solid black;
-  width: 35%;
-  padding: 25px;
-}
-
-.columna {
-  padding: 15px;
-}
-
-.subTitle {
-  font-size: 1.5em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.botonera {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 35%;
-  margin: 15px;
-}
 
 .button {
   border-radius: 4px;
@@ -43,29 +18,22 @@
 }
 .itemList {
   list-style: none;
-  font-size: 1.3em;
-}
-.dato {
-  font-size: 1.5em;
-}
-.separador {
-  border: 5px solid grey;
-  width: 60%;
 }
 
 .tabla {
   border-collapse: collapse;
-  width: 40%;
+  width: 60%;
   margin: 30px;
 }
+
 .tabla th,
 .tabla td {
-  padding: 8px;
+  padding: 5px;
   text-align: center;
   border: 1px solid #ddd;
   font-family: "Titillium Web", sans-serif;
 }
 
 .tabla th {
-  background-color: #f2f2f2;
+  background-color: #e49c9c;
 }

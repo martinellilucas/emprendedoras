@@ -8,10 +8,9 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const SEARCH = "SEARCH";
 export const GET_CICLOS = "GET_CICLOS";
 
-export const searchEmprendedora = (codigoEmprendedora) => {
-  console.log(codigoEmprendedora);
+export const searchEmprendedora = (nombre) => {
   return function (dispatch) {
-    dispatch({ type: SEARCH, payload: codigoEmprendedora });
+    dispatch({ type: SEARCH, payload: nombre });
   };
 };
 
@@ -24,7 +23,30 @@ export const postEmprendedora = (emprendedora) => {
       });
   };
 };
-
+export const putEmprendedora = (codigoEmprendedora, body) => {
+  return async function () {
+    await axios.put(
+      `http://localhost:3001/emprendedoras/${codigoEmprendedora}`,
+      body
+    );
+  };
+};
+export const postCiclo = (ciclo) => {
+  return async function () {
+    await axios.post(`http://localhost:3001/ciclos`, ciclo).then((res) => {
+      return res.data;
+    });
+  };
+};
+export const postComentario = (comentario) => {
+  return async function () {
+    await axios
+      .post(`http://localhost:3001/comentarios`, comentario)
+      .then((res) => {
+        return res.data;
+      });
+  };
+};
 export const getEmprendedoras = () => {
   return async function (dispatch) {
     const response = await axios.get("http://localhost:3001/emprendedoras");

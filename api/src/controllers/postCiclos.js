@@ -1,12 +1,12 @@
 const { Ciclo, Emprendedora } = require("../db");
 
 const postCiclo = async (ciclo, puntos, codigoEmprendedora) => {
-  await Ciclo.create({ ciclo, puntos });
+  const nuevoCiclo = await Ciclo.create({ ciclo, puntos });
   const emprendedora = await Emprendedora.findByPk(codigoEmprendedora);
-  const cicloCreado = await Ciclo.findByPk(ciclo);
-  await emprendedora.addCiclo(cicloCreado);
 
-  return cicloCreado;
+  await emprendedora.addCiclo(nuevoCiclo);
+
+  return nuevoCiclo;
 };
 
 module.exports = postCiclo;

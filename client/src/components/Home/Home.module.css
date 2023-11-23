@@ -22,10 +22,13 @@
 }
 
 .separador {
-  border: 5px solid grey;
+  border: 5px solid #e49c9c;
 }
 .button {
-  border-radius: 3px;
+  border: none;
+  background-color: white;
+  width: 35px;
+  height: 30px;
   cursor: pointer;
   font-family: "Titillium Web", sans-serif;
 }

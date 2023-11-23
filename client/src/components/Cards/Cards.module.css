@@ -11,7 +11,7 @@
 }
 
 .tabla th {
-  background-color: #f2f2f2;
+  background-color: #e49c9c;
 }
 
 .button {
@@ -19,4 +19,7 @@
   padding: 5px 10px;
   cursor: pointer;
   font-family: "Titillium Web", sans-serif;
+}
+.itemList {
+  list-style: none;
 }

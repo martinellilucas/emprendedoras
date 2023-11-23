@@ -4,7 +4,7 @@ import style from "./Home.module.css";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import { getEmprendedoras, searchEmprendedora } from "../../redux/actions";
-
+import { FaSearch } from "react-icons/fa";
 const Home = ({ currentPage, setCurrentPage }) => {
   const dispatch = useDispatch();
   const { emprendedoras } = useSelector((state) => state);
@@ -31,13 +31,13 @@ const Home = ({ currentPage, setCurrentPage }) => {
         <div className={style.searchBar}>
           <input
             className={style.input}
-            placeholder="Buscar por codigo"
+            placeholder="Buscar por nombre"
             type="search"
             value={search}
             onChange={handleChange}
           ></input>
           <button onClick={handleClick} className={style.button}>
-            🔍
+            <FaSearch />
           </button>
         </div>
       </div>

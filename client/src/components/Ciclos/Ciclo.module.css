@@ -1,7 +1,7 @@
 .popUpBox {
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 25%;
   background-color: rgba(0, 0, 0, 0.5);
   width: 320px;
   height: 480px;

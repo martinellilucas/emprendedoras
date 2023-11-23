@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgba(110, 104, 104, 0.9);
+  background-color: #e49c9c;
   z-index: 2;
   top: 0;
 }
@@ -19,6 +19,6 @@
 }
 
 .span:hover {
-  color: cornflowerblue;
+  color: rgb(0, 0, 0);
   font-family: "Titillium Web", sans-serif;
 }

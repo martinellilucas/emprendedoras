@@ -9,9 +9,16 @@
 }
 
 .separador {
-  border: 5px solid grey;
+  border: 5px solid #e49c9c;
 }
-
+.msgError {
+  font-size: 0.8em;
+  color: #e49c9c;
+}
+.confirmation {
+  font-size: 0.8em;
+  color: green;
+}
 .form {
   display: flex;
   align-items: center;
@@ -23,18 +30,20 @@
 .section {
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 5px;
 }
 
 .label {
   font-size: 1.1em;
+  text-transform: uppercase;
 }
 
 .button {
   border-radius: 3px;
   padding: 5px 10px;
   cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .input {
@@ -42,6 +51,7 @@
   font-size: 1.1em;
   padding-left: 10px;
   border-radius: 3px;
+  resize: none;
 }
 
 .selector {

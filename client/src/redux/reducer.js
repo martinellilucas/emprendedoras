@@ -34,9 +34,9 @@ const reducer = (state = initialState, action) => {
         allEmprendedoras: [...state.emprendedoras],
         emprendedoras: [
           ...state.allEmprendedoras.filter((emprendedora) =>
-            emprendedora.codigoEmprendedora
-              .toString()
-              .startsWith(action.payload)
+            emprendedora.nombre
+              .toUpperCase()
+              .startsWith(action.payload.toUpperCase())
           ),
         ],
       };

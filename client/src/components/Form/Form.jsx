@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "./Form.module.css";
 import { useDispatch } from "react-redux";
 import { postEmprendedora } from "../../redux/actions";
+import { validation } from "./validation";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -16,14 +17,12 @@ const Form = () => {
     categoria: "",
   });
   const [errors, setErrors] = useState({
-    codigoEmprendedora: "",
-    nombre: "",
-    cicloAlta: "",
-    otrasActividades: "",
-    localidad: "",
-    provincia: "",
-    tel: "",
-    categoria: "",
+    codigoEmprendedora: "Debe ingresar un código valido",
+    nombre: "Debe ingresar un nombre",
+    cicloAlta: "Debe ingresar un  ciclo de alta válido",
+    localidad: "Debe ingresar una localidad",
+    provincia: "Debe ingresar una provincia",
+    tel: "Debe ingresar un teléfono válido",
   });
 
   const handleChange = (event) => {
@@ -31,24 +30,36 @@ const Form = () => {
     const target = event.target.name;
     if (target === "otrasActividades") {
       setForm({ ...form, otrasActividades: [value] });
-    } else setForm({ ...form, [target]: value });
+    } else {
+      setForm({ ...form, [target]: value });
+      validation({ ...form, [target]: value }, errors, setErrors, target);
+    }
   };
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert("Emprendedora agregada al sistema con exito");
+    if (
+      !errors.codigoEmprendedora &&
+      !errors.nombre &&
+      !errors.cicloAlta &&
+      !errors.localidad &&
+      !errors.provincia &&
+      !errors.tel
+    ) {
+      alert("Emprendedora agregada al sistema con exito");
 
-    dispatch(postEmprendedora(form));
-    setForm({
-      codigoEmprendedora: "",
-      nombre: "",
-      cicloAlta: "",
-      otrasActividades: [],
-      localidad: "",
-      provincia: "",
-      tel: "",
-      categoria: "",
-    });
+      dispatch(postEmprendedora(form));
+      setForm({
+        codigoEmprendedora: "",
+        nombre: "",
+        cicloAlta: "",
+        otrasActividades: [],
+        localidad: "",
+        provincia: "",
+        tel: "",
+        categoria: "",
+      });
+    }
   };
 
   return (
@@ -67,6 +78,11 @@ const Form = () => {
             value={form.codigoEmprendedora}
             className={style.input}
           ></input>
+          {errors.codigoEmprendedora ? (
+            <span className={style.msgError}>{errors.codigoEmprendedora}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
         <div className={style.section}>
           <label htmlFor="nombre" className={style.label}>
@@ -79,6 +95,11 @@ const Form = () => {
             value={form.nombre}
             className={style.input}
           ></input>
+          {errors.nombre ? (
+            <span className={style.msgError}>{errors.nombre}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
         <div className={style.section}>
           <label htmlFor="cicloAlta" className={style.label}>
@@ -91,6 +112,11 @@ const Form = () => {
             value={form.cicloAlta}
             className={style.input}
           ></input>
+          {errors.cicloAlta ? (
+            <span className={style.msgError}>{errors.cicloAlta}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
         <div className={style.section}>
           <label htmlFor="otrasActividades" className={style.label}>
@@ -115,6 +141,11 @@ const Form = () => {
             value={form.localidad}
             className={style.input}
           ></input>
+          {errors.localidad ? (
+            <span className={style.msgError}>{errors.localidad}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
         <div className={style.section}>
           <label htmlFor="provincia" className={style.label}>
@@ -127,6 +158,11 @@ const Form = () => {
             value={form.provincia}
             className={style.input}
           ></input>
+          {errors.provincia ? (
+            <span className={style.msgError}>{errors.provincia}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
         <div className={style.section}>
           <label htmlFor="tel" className={style.label}>
@@ -139,6 +175,11 @@ const Form = () => {
             value={form.tel}
             className={style.input}
           ></input>
+          {errors.tel ? (
+            <span className={style.msgError}>{errors.tel}</span>
+          ) : (
+            <span className={style.confirmation}>✔</span>
+          )}
         </div>
 
         <div className={style.section}>

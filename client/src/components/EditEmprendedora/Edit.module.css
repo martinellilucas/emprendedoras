@@ -1,11 +1,11 @@
 .popUpBox {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: 40%;
+  top: 30%;
   background-color: rgba(0, 0, 0, 0.5);
   width: 320px;
-  height: 380px;
-  border-radius: 15px;
+  height: 480px;
+  border-radius: 4px;
 }
 .subTitle {
   font-size: 1.2em;
@@ -13,7 +13,7 @@
 .box {
   position: relative;
   width: 250px;
-  height: 300px;
+  height: 400px;
   background-color: white;
   border: 1px solid #999;
   border-radius: 4px;
@@ -21,13 +21,19 @@
   padding: 20px;
   margin: 20px auto;
 }
-
+.section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1em;
+}
 .buttonClose {
   cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #999;
+  background-color: white;
+  border: none;
   position: fixed;
-  right: 36%;
+  width: 50px;
+  height: 50px;
+  right: calc(48% - 30px);
   font-family: "Titillium Web", sans-serif;
 }
 
@@ -54,9 +60,18 @@
   border-radius: 3px;
   font-family: "Titillium Web", sans-serif;
 }
+.msgError {
+  font-size: 0.8em;
+  color: #e49c9c;
+}
+.confirmation {
+  font-size: 0.8em;
+  color: green;
+}
 .select {
   font-family: "Titillium Web", sans-serif;
-  padding: 5px 40px;
-  font-size: 0.8em;
+  padding: 2px 35px;
+  font-size: 0.9em;
+  margin-left: 5px;
   border-radius: 3px;
 }

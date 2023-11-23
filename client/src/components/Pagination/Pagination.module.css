@@ -14,7 +14,7 @@
   margin: 5px;
   border: 2px solid white;
   color: white;
-  background: rgba(0, 0, 0, 0.6);
+  background: #e49c9c;
   transition: all 0.5s;
 }
 .isActive {

@@ -33,54 +33,46 @@ const Detail = () => {
   return (
     <div className={style.body}>
       <h1 className={style.title}>{emprendedoraDetail?.nombre}</h1>
-      <div className={style.table}>
-        <div className={style.columna}>
-          <h1 className={style.subTitle}>Codigo de Emprendedora</h1>
-          <h1 className={style.subTitle}>Ciclo de Alta</h1>
-          <h1 className={style.subTitle}>Localidad</h1>
-          <h1 className={style.subTitle}>Provincia</h1>
-          <h1 className={style.subTitle}>Teléfono</h1>
-          <h1 className={style.subTitle}>Actividades Extras</h1>
-          <h1 className={style.subTitle}>Categoria de emprendedora</h1>
-        </div>
-        <hr />
-        <div className={style.columna}>
-          <h1 className={style.dato}>
-            {emprendedoraDetail.codigoEmprendedora}
-          </h1>
-          <h1 className={style.dato}>{emprendedoraDetail.cicloAlta}</h1>
-          <h1 className={style.dato}>{emprendedoraDetail.localidad}</h1>
-          <h1 className={style.dato}>{emprendedoraDetail.provincia}</h1>
-          <h1 className={style.dato}>{emprendedoraDetail.tel}</h1>
-          {emprendedoraDetail.otrasActividades?.map((e) => {
-            return <li className={style.itemList}>{e}</li>;
-          })}
-          <h1 className={style.dato}>{emprendedoraDetail.categoria}</h1>
-        </div>
-      </div>
+      <table className={style.tabla}>
+        <thead>
+          <tr>
+            <th>Codigo de Emprendedora</th>
+            <th>Ciclo de Alta</th>
+            <th>Localidad</th>
+            <th>Provincia</th>
+            <th>Teléfono</th>
+            <th>Actividades Extras</th>
+            <th>Categoria de emprendedora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{emprendedoraDetail.codigoEmprendedora}</td>
+            <td>{emprendedoraDetail.cicloAlta}</td>
+            <td>{emprendedoraDetail.localidad}</td>
+            <td>{emprendedoraDetail.provincia}</td>
+            <td>{emprendedoraDetail.tel}</td>
+            <td>
+              {emprendedoraDetail.otrasActividades?.map((e) => {
+                return <li className={style.itemList}>{e}</li>;
+              })}
+            </td>
+            <td>{emprendedoraDetail.categoria}</td>
+          </tr>
+        </tbody>
+      </table>
       <button className={style.button} onClick={toggleEdit}>
         Editar
       </button>
-      {isOpenEdit && <Edit handleClose={toggleEdit} />}
+      {isOpenEdit && (
+        <Edit
+          codigoEmprendedora={codigoEmprendedora}
+          handleClose={toggleEdit}
+        />
+      )}
 
-      <h1 className={style.subTitle}>Comentarios</h1>
-      <hr className={style.separador} />
-      {comentarios?.map((element) => {
-        return (
-          <ul key={element.id}>
-            <li className={style.itemList}>Autor: {element.autor}</li>
-            <li className={style.itemList}>Texto: {element.texto}</li>
-            <li className={style.itemList}>Fecha: {element.createdAt}</li>
-          </ul>
-        );
-      })}
+      <h1 className={style.title}>Ciclos</h1>
 
-      <button className={style.button} onClick={togglePopUp}>
-        Agregar comentario
-      </button>
-      {isOpen && <PopUp handleClose={togglePopUp} />}
-      <h1 className={style.subTitle}>Ciclos</h1>
-      <hr className={style.separador} />
       <table className={style.tabla}>
         <thead>
           <tr>
@@ -106,7 +98,41 @@ const Detail = () => {
       <button className={style.button} onClick={toggleCiclo}>
         Agregar ciclo
       </button>
-      {isOpenCiclo && <Ciclo handleClose={toggleCiclo} />}
+      {isOpenCiclo && (
+        <Ciclo
+          codigoEmprendedora={codigoEmprendedora}
+          handleClose={toggleCiclo}
+        />
+      )}
+      <h1 className={style.title}>Comentarios</h1>
+      <table className={style.tabla}>
+        <thead>
+          <th>Autor</th>
+          <th>Texto</th>
+          <th>Fecha</th>
+        </thead>
+        <tbody>
+          {comentarios?.map((element) => {
+            return (
+              <tr>
+                <td> {element.autor}</td>
+                <td> {element.texto}</td>
+                <td> {element.createdAt}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <button className={style.button} onClick={togglePopUp}>
+        Agregar comentario
+      </button>
+      {isOpen && (
+        <PopUp
+          codigoEmprendedora={codigoEmprendedora}
+          handleClose={togglePopUp}
+        />
+      )}
     </div>
   );
 };

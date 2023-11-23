@@ -6,14 +6,14 @@ const Cards = ({ emprendedoras }) => {
     <table className={style.tabla}>
       <thead>
         <tr>
-          <th>Cod. Emprendedora</th>
+          <th>Cód. Emprendedora</th>
           <th>Nombre</th>
           <th>Ciclo de Alta</th>
           <th>Otras Actividades</th>
           <th>Localidad</th>
           <th>Provincia</th>
-          <th>Telefono</th>
-          <th>Categoria</th>
+          <th>Teléfono</th>
+          <th>Categoría</th>
           <th></th>
         </tr>
       </thead>
@@ -36,13 +36,17 @@ const Cards = ({ emprendedoras }) => {
                 <td>{cicloAlta}</td>
                 <td>
                   {otrasActividades.map((element) => {
-                    return <li>{element}</li>;
+                    return <li className={style.itemList}>{element}</li>;
                   })}
                 </td>
 
                 <td>{localidad}</td>
                 <td>{provincia}</td>
-                <td>{tel}</td>
+                <td>
+                  <a href={`https://api.whatsapp.com/send?phone=${tel}`}>
+                    {tel}
+                  </a>
+                </td>
                 <td>{categoria}</td>
                 <td>
                   <Link to={`/detail/${codigoEmprendedora}`}>
