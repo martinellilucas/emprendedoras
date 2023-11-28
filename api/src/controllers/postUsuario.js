@@ -1,12 +1,12 @@
 const { Usuario } = require("../db");
 
-const postUsuario = async (nombre, email, emailVerified, picture) => {
+const postUsuario = async (name, email, email_verified, picture) => {
   const usuario = await Usuario.findOrCreate({
     where: {
-      nombre,
-      email,
-      emailVerified,
-      picture,
+      nombre: name,
+      email: email,
+      emailVerified: email_verified,
+      picture: picture,
     },
   });
   return usuario;

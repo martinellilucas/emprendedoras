@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { getUsuario, postUsuario } from "../../redux/actions";
+import { log } from "console";
 
 const Nav = () => {
   const { user, loginWithPopup, isAuthenticated } = useAuth0();
@@ -16,7 +17,7 @@ const Nav = () => {
       dispatch(postUsuario(user));
       dispatch(getUsuario(user?.email));
     }
-  }, [user, dispatch]);
+  }, [isAuthenticated, user, dispatch]);
 
   return (
     <div className={style.container}>
@@ -36,7 +37,7 @@ const Nav = () => {
             Login
           </button>
         ) : (
-          <span>{usuario?.picture}</span>
+          <img src={usuario?.picture} />
         )}
       </div>
     </div>
