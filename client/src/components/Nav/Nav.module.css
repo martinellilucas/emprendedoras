@@ -22,3 +22,23 @@
   color: rgb(0, 0, 0);
   font-family: "Titillium Web", sans-serif;
 }
+
+.button {
+  background-color: #e49c9c;
+  border: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+  font-family: "Titillium Web", sans-serif;
+  cursor: pointer;
+}
+.button:hover {
+  color: rgb(0, 0, 0);
+  font-family: "Titillium Web", sans-serif;
+}
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

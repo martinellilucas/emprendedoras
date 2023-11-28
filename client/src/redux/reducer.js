@@ -3,10 +3,12 @@ import {
   CLEAN_DETAIL,
   GET_COMENTARIOS,
   GET_EMPRENDEDORAS,
+  GET_USUARIO,
   SEARCH,
 } from "./actions";
 
 const initialState = {
+  usuario: {},
   emprendedoras: [],
   allEmprendedoras: [],
   emprendedoraDetail: {},
@@ -16,6 +18,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_USUARIO:
+      return { ...state, usuario: { ...action.payload } };
     case GET_EMPRENDEDORAS:
       return {
         ...state,
