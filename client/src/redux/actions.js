@@ -30,9 +30,9 @@ export const searchEmprendedora = (nombre) => {
   };
 };
 
-export const postEmprendedora = (emprendedora) => {
+export const postEmprendedora = (id, emprendedora) => {
   return async function () {
-    await axios.post(`${URL}/emprendedoras`, emprendedora).then((res) => {
+    await axios.post(`${URL}/emprendedoras/${id}`, emprendedora).then((res) => {
       return res.data;
     });
   };

@@ -8,7 +8,7 @@ const routeEmprendedora = Router();
 
 routeEmprendedora.get("/", handlerGetEmprendedoras);
 routeEmprendedora.get("/:codigoEmprendedora", handlerGetEmprendedoraById);
-routeEmprendedora.post("/", handlerPostEmprendedora);
+routeEmprendedora.post("/:id", handlerPostEmprendedora);
 routeEmprendedora.put("/:codigoEmprendedora", handlerPutEmprendedora);
 
 module.exports = routeEmprendedora;

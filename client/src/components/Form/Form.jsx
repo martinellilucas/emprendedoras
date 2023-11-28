@@ -1,10 +1,11 @@
 import { useState } from "react";
 import style from "./Form.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postEmprendedora } from "../../redux/actions";
 import { validation } from "./validation";
 
 const Form = () => {
+  const { usuario } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     codigoEmprendedora: "",
@@ -48,7 +49,7 @@ const Form = () => {
     ) {
       alert("Emprendedora agregada al sistema con exito");
 
-      dispatch(postEmprendedora(form));
+      dispatch(postEmprendedora(usuario.id, form));
       setForm({
         codigoEmprendedora: "",
         nombre: "",

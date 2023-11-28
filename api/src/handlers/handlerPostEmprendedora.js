@@ -2,6 +2,7 @@ const postEmprendedora = require("../controllers/postEmprendedora");
 
 const handlerPostEmprendedora = async (req, res) => {
   try {
+    const { id } = req.params;
     const {
       codigoEmprendedora,
       nombre,
@@ -13,6 +14,7 @@ const handlerPostEmprendedora = async (req, res) => {
       categoria,
     } = req.body;
     const emprendedora = await postEmprendedora(
+      id,
       codigoEmprendedora,
       nombre,
       cicloAlta,

@@ -1,6 +1,7 @@
-const { Emprendedora } = require("../db");
+const { Emprendedora, Usuario } = require("../db");
 
 const postEmprendedora = async (
+  id,
   codigoEmprendedora,
   nombre,
   cicloAlta,
@@ -20,6 +21,8 @@ const postEmprendedora = async (
     tel,
     categoria,
   });
+  const lider = await Usuario.findByPk(id);
+  newEmprendedora.setUsuario(lider);
   return newEmprendedora;
 };
 
