@@ -30,7 +30,7 @@ const Nav = () => {
       )}
       <div className={style.login}>
         <FaUser color="white" />
-        {isAuthenticated ? (
+        {!isAuthenticated ? (
           <button className={style.button} onClick={loginWithPopup}></button>
         ) : (
           <span>{usuario?.picture}</span>
