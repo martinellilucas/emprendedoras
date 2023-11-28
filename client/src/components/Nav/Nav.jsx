@@ -23,7 +23,10 @@ const Nav = () => {
       <Link className={style.span} to="/">
         <span>Inicio</span>
       </Link>
-      <Link className={style.span} to="/form">
+      <Link
+        className={user?.isAuthenticated ? style.span : style.oculto}
+        to="/form"
+      >
         <span>Sumar emprendedora</span>
       </Link>
       <div className={style.login}>
@@ -31,7 +34,7 @@ const Nav = () => {
         {user?.isAuthenticated ? (
           <button className={style.button} onClick={loginWithPopup}></button>
         ) : (
-          <span>usuario.picture</span>
+          <span>{usuario?.picture}</span>
         )}
         Login
       </div>
