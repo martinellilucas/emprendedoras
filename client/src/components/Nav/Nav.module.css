@@ -17,9 +17,7 @@
   color: white;
   font-family: "Titillium Web", sans-serif;
 }
-.oculto {
-  display: none;
-}
+
 .span:hover {
   color: rgb(0, 0, 0);
   font-family: "Titillium Web", sans-serif;

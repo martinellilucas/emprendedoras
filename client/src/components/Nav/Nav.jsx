@@ -12,7 +12,7 @@ const Nav = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (user) {
+    if (isAuthenticated) {
       dispatch(postUsuario(user));
       dispatch(getUsuario(user?.email));
     }
