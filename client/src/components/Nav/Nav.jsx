@@ -36,7 +36,11 @@ const Nav = () => {
             Login
           </button>
         ) : (
-          <img alt={usuario.nombre} src={usuario?.picture} />
+          <img
+            alt={usuario.nombre}
+            src={usuario?.picture}
+            className={style.img}
+          />
         )}
       </div>
     </div>
