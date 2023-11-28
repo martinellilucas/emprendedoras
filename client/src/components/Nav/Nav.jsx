@@ -31,11 +31,13 @@ const Nav = () => {
       <div className={style.login}>
         <FaUser color="white" />
         {!isAuthenticated ? (
-          <button className={style.button} onClick={loginWithPopup}></button>
+          <button className={style.button} onClick={loginWithPopup}>
+            {" "}
+            Login
+          </button>
         ) : (
           <span>{usuario?.picture}</span>
         )}
-        Login
       </div>
     </div>
   );
