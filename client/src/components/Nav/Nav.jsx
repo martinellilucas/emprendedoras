@@ -28,21 +28,21 @@ const Nav = () => {
           <span>Sumar emprendedora</span>
         </Link>
       )}
-      <div className={style.login}>
-        <FaUser color="white" />
-        {!isAuthenticated ? (
+      {!isAuthenticated ? (
+        <div className={style.login}>
+          <FaUser color="white" />
           <button className={style.button} onClick={loginWithPopup}>
             {" "}
             Login
           </button>
-        ) : (
-          <img
-            alt={usuario.nombre}
-            src={usuario?.picture}
-            className={style.img}
-          />
-        )}
-      </div>
+        </div>
+      ) : (
+        <img
+          alt={usuario.nombre}
+          src={usuario?.picture}
+          className={style.img}
+        />
+      )}
     </div>
   );
 };
