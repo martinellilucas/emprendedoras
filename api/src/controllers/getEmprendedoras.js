@@ -1,4 +1,4 @@
-const { Emprendedora, Usuario } = require("../db");
+const { Emprendedora } = require("../db");
 
 const getEmprendedoras = async (id) => {
   const emprendedoras = await Emprendedora.findAll({

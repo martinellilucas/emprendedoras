@@ -39,10 +39,8 @@ let capsEntries = entries.map((entry) => [
 sequelize.models = Object.fromEntries(capsEntries);
 
 const { Usuario, Emprendedora, Ciclo, Comentario } = sequelize.models;
-Emprendedora.belongsTo(Usuario, {
-  foreignKey: "id_usuario",
-});
-
+Usuario.hasMany(Emprendedora, { foreignKey: "id_usuario" });
+Emprendedora.belongsTo(Usuario);
 Comentario.belongsTo(Emprendedora, { foreignKey: "codigoEmprendedora" });
 Emprendedora.belongsToMany(Ciclo, {
   through: "EmprendedoraCiclo",

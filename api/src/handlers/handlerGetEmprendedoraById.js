@@ -2,7 +2,7 @@ const getEmprendedoraById = require("../controllers/getEmprendedoraById");
 
 const handlerGetEmprendedoraById = async (req, res) => {
   try {
-    const { codigoEmprendedora } = req.body;
+    const { codigoEmprendedora } = req.params;
     const emprendedora = await getEmprendedoraById(codigoEmprendedora);
 
     res.status(200).json(emprendedora);

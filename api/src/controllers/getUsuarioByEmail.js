@@ -1,4 +1,4 @@
-const { Usuario } = require("../db");
+const { Usuario, Emprendedora } = require("../db");
 
 const getUsuarioByEmail = async (email) => {
   const usuario = await Usuario.findOne({ where: { email } });

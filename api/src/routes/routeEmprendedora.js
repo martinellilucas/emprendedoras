@@ -6,8 +6,7 @@ const handlerPutEmprendedora = require("../handlers/handlerPutEmprendedora");
 
 const routeEmprendedora = Router();
 
-routeEmprendedora.get("/:id", handlerGetEmprendedoras);
-routeEmprendedora.get("/", handlerGetEmprendedoraById);
+routeEmprendedora.get("/:codigoEmprendedora", handlerGetEmprendedoraById);
 routeEmprendedora.post("/:id", handlerPostEmprendedora);
 routeEmprendedora.put("/:codigoEmprendedora", handlerPutEmprendedora);
 
