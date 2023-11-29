@@ -1,7 +1,12 @@
-const { Emprendedora } = require("../db");
+const { Emprendedora, Usuario } = require("../db");
 
-const getEmprendedoras = async () => {
-  return await Emprendedora.findAll();
+const getEmprendedoras = async (id) => {
+  const emprendedoras = await Emprendedora.findAll({
+    where: {
+      id_usuario: id,
+    },
+  });
+  return emprendedoras;
 };
 
 module.exports = getEmprendedoras;

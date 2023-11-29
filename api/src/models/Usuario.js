@@ -7,8 +7,8 @@ module.exports = (sequelize) => {
     "Usuario",
     {
       id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV1,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
       },
       nombre: {

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import style from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { addDetail, cleanDetail, getComentarios } from "../../redux/actions";
-import PopUp from "../PopUp/PopUp";
+import { addDetail, cleanDetail } from "../../redux/actions";
+
 import Edit from "../EditEmprendedora/Edit";
 
 const Detail = () => {

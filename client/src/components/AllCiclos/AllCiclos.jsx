@@ -19,6 +19,7 @@ const AllCiclos = () => {
   }, [dispatch]);
   return (
     <div className={style.body}>
+      <h1 className={style.title}>Ciclos</h1>
       <Pagination
         emprendedorasPerPage={ciclosPerPage}
         currentPage={currentPage}

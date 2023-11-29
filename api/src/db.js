@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Sequelize } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 const { DB_URL, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
@@ -39,7 +39,10 @@ let capsEntries = entries.map((entry) => [
 sequelize.models = Object.fromEntries(capsEntries);
 
 const { Usuario, Emprendedora, Ciclo, Comentario } = sequelize.models;
-Emprendedora.belongsTo(Usuario, { foreignKey: "id_usuario" });
+Emprendedora.belongsTo(Usuario, {
+  foreignKey: "id_usuario",
+});
+Usuario.hasMany(Emprendedora);
 Comentario.belongsTo(Emprendedora, { foreignKey: "codigoEmprendedora" });
 Emprendedora.belongsToMany(Ciclo, {
   through: "EmprendedoraCiclo",

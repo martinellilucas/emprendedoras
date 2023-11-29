@@ -64,9 +64,9 @@ export const postComentario = (comentario) => {
     });
   };
 };
-export const getEmprendedoras = () => {
+export const getEmprendedoras = (id) => {
   return async function (dispatch) {
-    const response = await axios.get(`${URL}/emprendedoras`);
+    const response = await axios.get(`${URL}/emprendedoras/${id}`);
     dispatch({ type: GET_EMPRENDEDORAS, payload: response.data });
   };
 };

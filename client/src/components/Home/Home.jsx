@@ -3,11 +3,18 @@ import Cards from "../Cards/Cards";
 import style from "./Home.module.css";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination/Pagination";
-import { getEmprendedoras, searchEmprendedora } from "../../redux/actions";
+import {
+  getEmprendedoras,
+  getUsuario,
+  searchEmprendedora,
+} from "../../redux/actions";
 import { FaSearch } from "react-icons/fa";
+import { useAuth0 } from "@auth0/auth0-react";
 const Home = ({ currentPage, setCurrentPage }) => {
   const dispatch = useDispatch();
-  const { emprendedoras } = useSelector((state) => state);
+  const emprendedoras = useSelector((state) => state.emprendedoras);
+  const { user, isAuthenticathed } = useAuth0();
+  const usuario = useSelector((state) => state.usuario);
   const [emprendedorasPerPage] = useState(10);
   const [search, setSearch] = useState("");
   const totalEmprendedoras = emprendedoras.length;
@@ -22,8 +29,11 @@ const Home = ({ currentPage, setCurrentPage }) => {
     setSearch(event.target.value);
   };
   useEffect(() => {
-    dispatch(getEmprendedoras());
-  }, [dispatch]);
+    if (isAuthenticathed) {
+      dispatch(getUsuario(user?.email));
+      dispatch(getEmprendedoras(usuario?.id));
+    }
+  }, [dispatch, usuario, user, isAuthenticathed]);
   return (
     <div>
       <div className={style.container}>
