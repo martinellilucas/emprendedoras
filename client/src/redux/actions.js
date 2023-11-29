@@ -66,7 +66,7 @@ export const postComentario = (comentario) => {
 };
 export const getEmprendedoras = (id) => {
   return async function (dispatch) {
-    const response = await axios.get(`${URL}/emprendedoras/${id}`);
+    const response = await axios.get(`${URL}/emprendedorasusuario/${id}`);
     dispatch({ type: GET_EMPRENDEDORAS, payload: response.data });
   };
 };
