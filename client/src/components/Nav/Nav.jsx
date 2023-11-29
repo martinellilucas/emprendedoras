@@ -8,7 +8,7 @@ import { getUsuario, postUsuario } from "../../redux/actions";
 
 const Nav = () => {
   const { user, loginWithPopup, isAuthenticated } = useAuth0();
-  const { usuario } = useSelector((state) => state);
+  const usuario = useSelector((state) => state.usuario);
 
   const dispatch = useDispatch();
   useEffect(() => {

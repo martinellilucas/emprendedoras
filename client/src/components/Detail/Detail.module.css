@@ -37,3 +37,9 @@
 .tabla th {
   background-color: #e49c9c;
 }
+.botonera {
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: space-evenly;
+}

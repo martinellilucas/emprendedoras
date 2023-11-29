@@ -6,6 +6,8 @@ import Form from "./components/Form/Form";
 import { useState } from "react";
 import Detail from "./components/Detail/Detail";
 import Auth0ProviderWithHistory from "./auth0provider";
+import TablaCiclo from "./components/TablaCiclo/TablaCiclo";
+import TablaComentarios from "./components/TablaComentarios/TablaComentarios";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,6 +27,14 @@ function App() {
           <Route
             path="/detail/:codigoEmprendedora"
             element={<Detail />}
+          ></Route>
+          <Route
+            path="/ciclos/:codigoEmprendedora"
+            element={<TablaCiclo />}
+          ></Route>
+          <Route
+            path="/comentarios/:codigoEmprendedora"
+            element={<TablaComentarios />}
           ></Route>
         </Routes>
       </div>
