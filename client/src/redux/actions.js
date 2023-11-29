@@ -74,7 +74,8 @@ export const getEmprendedoras = (id) => {
 export const addDetail = (codigoEmprendedora) => {
   return async function (dispatch) {
     const response = await axios.get(
-      `${URL}/emprendedoras/${codigoEmprendedora}`
+      `${URL}/emprendedoras`,
+      codigoEmprendedora
     );
     dispatch({ type: ADD_DETAIL, payload: response.data });
   };

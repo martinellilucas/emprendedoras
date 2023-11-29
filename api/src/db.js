@@ -42,7 +42,7 @@ const { Usuario, Emprendedora, Ciclo, Comentario } = sequelize.models;
 Emprendedora.belongsTo(Usuario, {
   foreignKey: "id_usuario",
 });
-Usuario.hasMany(Emprendedora);
+
 Comentario.belongsTo(Emprendedora, { foreignKey: "codigoEmprendedora" });
 Emprendedora.belongsToMany(Ciclo, {
   through: "EmprendedoraCiclo",
