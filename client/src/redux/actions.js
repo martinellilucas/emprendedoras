@@ -7,7 +7,15 @@ export const GET_COMENTARIOS = "GET_COMENTARIOS";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const SEARCH = "SEARCH";
 export const GET_CICLOS = "GET_CICLOS";
+export const GET_ALL_CICLOS = "GET_ALL_CICLOS";
 const URL = "http://localhost:3001";
+
+export const getAllCiclos = () => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL}/ciclos`);
+    dispatch({ type: GET_ALL_CICLOS, payload: response.data });
+  };
+};
 
 export const postUsuario = (usuario) => {
   return async function () {
@@ -82,12 +90,5 @@ export const getComentarios = (codigoEmprendedora) => {
 export const cleanDetail = () => {
   return function (dispatch) {
     dispatch({ type: CLEAN_DETAIL });
-  };
-};
-
-export const getCiclos = (codigoEmprendedora) => {
-  return async function (dispatch) {
-    const response = await axios.get(`${URL}/ciclos/${codigoEmprendedora}`);
-    dispatch({ type: GET_CICLOS, payload: response.data });
   };
 };

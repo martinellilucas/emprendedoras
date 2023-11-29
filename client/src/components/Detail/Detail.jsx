@@ -44,7 +44,13 @@ const Detail = () => {
             <td>{emprendedoraDetail.cicloAlta}</td>
             <td>{emprendedoraDetail.localidad}</td>
             <td>{emprendedoraDetail.provincia}</td>
-            <td>{emprendedoraDetail.tel}</td>
+            <td>
+              <a
+                href={`https://api.whatsapp.com/send?phone=${emprendedoraDetail?.tel}`}
+              >
+                {emprendedoraDetail.tel}
+              </a>
+            </td>
             <td>
               {emprendedoraDetail.otrasActividades?.map((e) => {
                 return <li className={style.itemList}>{e}</li>;

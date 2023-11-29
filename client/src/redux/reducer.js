@@ -1,6 +1,7 @@
 import {
   ADD_DETAIL,
   CLEAN_DETAIL,
+  GET_ALL_CICLOS,
   GET_COMENTARIOS,
   GET_EMPRENDEDORAS,
   GET_USUARIO,
@@ -14,10 +15,17 @@ const initialState = {
   emprendedoraDetail: {},
   comentarios: [],
   ciclos: [],
+  allCiclos: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_ALL_CICLOS:
+      return {
+        ...state,
+        ciclos: [...action.payload],
+        allCiclos: [...action.payload],
+      };
     case GET_USUARIO:
       return { ...state, usuario: { ...action.payload } };
     case GET_EMPRENDEDORAS:

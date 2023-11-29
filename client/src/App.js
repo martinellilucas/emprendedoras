@@ -8,6 +8,7 @@ import Detail from "./components/Detail/Detail";
 import Auth0ProviderWithHistory from "./auth0provider";
 import TablaCiclo from "./components/TablaCiclo/TablaCiclo";
 import TablaComentarios from "./components/TablaComentarios/TablaComentarios";
+import AllCiclos from "./components/AllCiclos/AllCiclos";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,6 +19,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/form" element={<Form />}></Route>
+          <Route path="/ciclos" element={<AllCiclos />}></Route>
           <Route
             path="/"
             element={

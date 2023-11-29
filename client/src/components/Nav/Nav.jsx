@@ -24,6 +24,11 @@ const Nav = () => {
         <span>Inicio</span>
       </Link>
       {isAuthenticated && (
+        <Link className={style.span} to="/ciclos">
+          <span>Ciclos</span>
+        </Link>
+      )}
+      {isAuthenticated && (
         <Link className={style.span} to="/form">
           <span>Sumar emprendedora</span>
         </Link>
