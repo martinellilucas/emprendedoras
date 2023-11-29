@@ -12,6 +12,6 @@ router.use("/emprendedoras", routeEmprendedora);
 router.use("/comentarios", routeComentarios);
 router.use("/ciclos", routeCiclos);
 router.use("/usuarios", routeUsuario);
-route.use("/emprendedorasusuario", routeEmprendedoraUsuario);
+router.use("/emprendedorasusuario", routeEmprendedoraUsuario);
 
 module.exports = router;

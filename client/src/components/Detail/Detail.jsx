@@ -74,6 +74,7 @@ const Detail = () => {
       {isOpenEdit && (
         <Edit
           codigoEmprendedora={codigoEmprendedora}
+          categoria={emprendedoraDetail.categoria}
           handleClose={toggleEdit}
         />
       )}

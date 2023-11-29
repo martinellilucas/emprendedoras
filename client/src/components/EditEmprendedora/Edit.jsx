@@ -3,11 +3,11 @@ import style from "./Edit.module.css";
 import { useDispatch } from "react-redux";
 import { putEmprendedora } from "../../redux/actions";
 import { AiFillCloseSquare } from "react-icons/ai";
-const Edit = ({ codigoEmprendedora, handleClose }) => {
+const Edit = ({ codigoEmprendedora, categoria, handleClose }) => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     otrasActividades: [],
-    categoria: "",
+    categoria: categoria,
     codigoEmprendedora: codigoEmprendedora,
   });
 
