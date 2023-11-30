@@ -90,10 +90,12 @@ const AgregarProducto = ({ handleClose }) => {
               onChange={handleChange}
               className={style.select}
             >
+              <option></option>
               <option>Aqua</option>
               <option>Terra</option>
               <option>Fuego</option>
               <option>Cherry</option>
+              <option>Rosa</option>
             </select>
           </div>
           <div className={style.section}>
