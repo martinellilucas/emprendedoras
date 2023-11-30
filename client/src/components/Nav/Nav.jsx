@@ -29,6 +29,11 @@ const Nav = () => {
         </Link>
       )}
       {isAuthenticated && (
+        <Link className={style.span} to="/productos">
+          <span>Stock</span>
+        </Link>
+      )}
+      {isAuthenticated && (
         <Link className={style.span} to="/form">
           <span>Sumar emprendedora</span>
         </Link>
