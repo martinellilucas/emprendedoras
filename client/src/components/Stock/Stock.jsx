@@ -14,10 +14,12 @@ const Stock = () => {
   const handleClose = () => {
     setIsOpen(!isOpen);
   };
+
   useEffect(() => {
     dispatch(getUsuario(user?.email));
     dispatch(getProductos(usuario?.id));
-  }, [dispatch, usuario, user]);
+  }, []);
+
   return (
     <div className={style.body}>
       <h1 className={style.title}>Stock</h1>
