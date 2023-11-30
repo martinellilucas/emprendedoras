@@ -47,10 +47,31 @@ const AgregarProducto = ({ handleClose }) => {
               onChange={handleChange}
               className={style.select}
             >
+              <option>Jarro Quick</option>
+              <option>Sarten express</option>
+              <option>Sarten 24cm</option>
+              <option>Sarten 28cm</option>
               <option>Cacerola 18cm</option>
-              <option>Cacerola 20cm</option>
               <option>Cacerola 24cm</option>
               <option>Cacerola 28cm</option>
+              <option>Cuadrada 29cm</option>
+              <option>Bifera</option>
+              <option>Flip 2.1</option>
+              <option>Rectangular 30cm</option>
+              <option>Wok</option>
+              <option>Nuit Cacerola 24cm</option>
+              <option>Nuit Cacerola 28cm</option>
+              <option>Nuit Sarten 24cm</option>
+              <option>Nuit Sarten 28cm</option>
+              <option>Urban Grill</option>
+              <option>Disco</option>
+              <option>Grill Multifuncion</option>
+              <option>Set Disco</option>
+              <option>Sarten 24cm Amor Canino</option>
+              <option>Savarin 18cm</option>
+              <option>Savarin 24cm</option>
+              <option>Savarin 28cm</option>
+              <option>Budineras x2</option>
             </select>
           </div>
           <div className={style.section}>
