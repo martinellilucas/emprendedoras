@@ -10,7 +10,9 @@ const AgregarProducto = ({ handleClose }) => {
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     tipo: "Jarro Quick",
+    color: "",
     unidades: "0",
+    comentario: "",
   });
   useEffect(() => {
     if (isAuthenticated) {
@@ -27,7 +29,8 @@ const AgregarProducto = ({ handleClose }) => {
     alert("El producto fue añadido correctamente");
     dispatch(postProducto(usuario.id, form));
     setForm({
-      tipo: "",
+      tipo: "Jarro Quick",
+      color: "",
       unidades: "0",
     });
   };
@@ -76,6 +79,23 @@ const AgregarProducto = ({ handleClose }) => {
               <option>Budineras x2</option>
             </select>
           </div>
+          <div>
+            <label htmlFor="color" className={style.label}>
+              Color
+            </label>
+            <select
+              name="color"
+              value={form.color}
+              type="text"
+              onChange={handleChange}
+              className={style.select}
+            >
+              <option>Aqua</option>
+              <option>Terra</option>
+              <option>Fuego</option>
+              <option>Cherry</option>
+            </select>
+          </div>
           <div className={style.section}>
             <label htmlFor="unidades" className={style.label}>
               Unidades
@@ -86,6 +106,18 @@ const AgregarProducto = ({ handleClose }) => {
               type="number"
               onChange={handleChange}
               className={style.input}
+            ></input>
+          </div>
+          <div className={style.section}>
+            <label htmlFor="comentario" className={style.label}>
+              Comentario
+            </label>
+            <input
+              name="comentario"
+              className={style.input}
+              type="text"
+              onChange={handleChange}
+              value={form.comentario}
             ></input>
           </div>
           <button type="submit" className={style.button}>
