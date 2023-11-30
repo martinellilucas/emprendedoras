@@ -9,7 +9,7 @@ const AgregarProducto = ({ handleClose }) => {
   const usuario = useSelector((state) => state.usuario);
   const dispatch = useDispatch();
   const [form, setForm] = useState({
-    tipo: "",
+    tipo: "Jarro Quick",
     unidades: "0",
   });
   useEffect(() => {
