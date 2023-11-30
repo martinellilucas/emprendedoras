@@ -6,7 +6,7 @@ import { getProductos, getUsuario } from "../../redux/actions";
 import AgregarProducto from "../AgregarProducto/AgregarProducto";
 
 const Stock = () => {
-  const { user } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const productos = useSelector((state) => state.productos);
   const usuario = useSelector((state) => state.usuario);
   const dispatch = useDispatch();
@@ -16,8 +16,10 @@ const Stock = () => {
   };
 
   useEffect(() => {
-    dispatch(getUsuario(user?.email));
-    dispatch(getProductos(usuario?.id));
+    if (isAuthenticated) {
+      dispatch(getUsuario(user?.email));
+      dispatch(getProductos(usuario?.id));
+    }
   }, []);
 
   return (
