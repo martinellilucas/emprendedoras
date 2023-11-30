@@ -33,7 +33,7 @@ const Home = ({ currentPage, setCurrentPage }) => {
       dispatch(getUsuario(user?.email));
       dispatch(getEmprendedoras(usuario?.id));
     }
-  }, [dispatch, usuario, user, isAuthenticathed]);
+  }, []);
   return (
     <div>
       <div className={style.container}>

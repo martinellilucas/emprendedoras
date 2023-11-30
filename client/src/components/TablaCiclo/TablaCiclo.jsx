@@ -28,7 +28,7 @@ const TablaCiclo = () => {
     return () => {
       dispatch(cleanDetail());
     };
-  }, [codigoEmprendedora, dispatch]);
+  }, [codigoEmprendedora]);
   return (
     <div className={style.body}>
       <h1 className={style.title}>Ciclos</h1>
