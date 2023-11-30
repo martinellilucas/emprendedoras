@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getProductos, getUsuario } from "../../redux/actions";
 import AgregarProducto from "../AgregarProducto/AgregarProducto";
+
 const Stock = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const productos = useSelector((state) => state.productos);
   const usuario = useSelector((state) => state.usuario);
   const dispatch = useDispatch();
@@ -14,11 +15,9 @@ const Stock = () => {
     setIsOpen(!isOpen);
   };
   useEffect(() => {
-    if (isAuthenticated) {
-      dispatch(getUsuario(user?.email));
-      dispatch(getProductos(usuario?.id));
-    }
-  }, [dispatch, usuario, user, isAuthenticated]);
+    dispatch(getUsuario(user?.email));
+    dispatch(getProductos(usuario?.id));
+  }, [dispatch, usuario, user]);
   return (
     <div className={style.body}>
       <h1 className={style.title}>Stock</h1>
