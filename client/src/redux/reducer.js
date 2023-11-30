@@ -4,6 +4,7 @@ import {
   GET_ALL_CICLOS,
   GET_COMENTARIOS,
   GET_EMPRENDEDORAS,
+  GET_PRODUCTOS,
   GET_USUARIO,
   SEARCH,
 } from "./actions";
@@ -16,10 +17,18 @@ const initialState = {
   comentarios: [],
   ciclos: [],
   allCiclos: [],
+  productos: [],
+  allProductos: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_PRODUCTOS:
+      return {
+        ...state,
+        productos: [...action.payload],
+        allProductos: [...action.payload],
+      };
     case GET_ALL_CICLOS:
       return {
         ...state,

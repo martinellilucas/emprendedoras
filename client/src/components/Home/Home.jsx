@@ -31,8 +31,8 @@ const Home = ({ currentPage, setCurrentPage }) => {
   useEffect(() => {
     if (isAuthenticathed) {
       dispatch(getUsuario(user?.email));
+      dispatch(getEmprendedoras(usuario?.id));
     }
-    dispatch(getEmprendedoras(usuario?.id));
   }, [dispatch, usuario, user, isAuthenticathed]);
   return (
     <div>

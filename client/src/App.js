@@ -9,6 +9,7 @@ import Auth0ProviderWithHistory from "./auth0provider";
 import TablaCiclo from "./components/TablaCiclo/TablaCiclo";
 import TablaComentarios from "./components/TablaComentarios/TablaComentarios";
 import AllCiclos from "./components/AllCiclos/AllCiclos";
+import Stock from "./components/Stock/Stock";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/form" element={<Form />}></Route>
           <Route path="/ciclos" element={<AllCiclos />}></Route>
+          <Route path="/productos" element={<Stock />}></Route>
           <Route
             path="/"
             element={

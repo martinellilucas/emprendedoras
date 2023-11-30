@@ -8,7 +8,23 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const SEARCH = "SEARCH";
 export const GET_CICLOS = "GET_CICLOS";
 export const GET_ALL_CICLOS = "GET_ALL_CICLOS";
+export const GET_PRODUCTOS = "GET_PRODUCTOS";
 const URL = "http://localhost:3001";
+
+export const postProducto = (id, body) => {
+  return async function () {
+    await axios.post(`${URL}/productos/${id}`, body).then((res) => {
+      return res.data;
+    });
+  };
+};
+
+export const getProductos = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL}/productos/${id}`);
+    dispatch({ type: GET_PRODUCTOS, payload: response.data });
+  };
+};
 
 export const getAllCiclos = () => {
   return async function (dispatch) {
