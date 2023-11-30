@@ -13,7 +13,9 @@ const AgregarProducto = ({ handleClose }) => {
     unidades: "0",
   });
   useEffect(() => {
-    dispatch(getUsuario(user?.email));
+    if (isAuthenticated) {
+      dispatch(getUsuario(user?.email));
+    }
   }, []);
   const handleChange = (event) => {
     const value = event.target.value;

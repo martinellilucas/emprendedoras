@@ -55,7 +55,7 @@ const Stock = () => {
           Agregar Producto
         </button>
       </div>
-      {isOpen && <AgregarProducto />}
+      {isOpen && <AgregarProducto handleClose={handleClose} />}
     </div>
   );
 };
