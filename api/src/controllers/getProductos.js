@@ -1,7 +1,7 @@
 const { Producto } = require("../db");
 
-const getProductos = async (id) => {
-  const productos = await Producto.findAll({ where: { UsuarioId: id } });
+const getProductos = async (userid) => {
+  const productos = await Producto.findAll({ where: { UsuarioId: userid } });
   return productos;
 };
 

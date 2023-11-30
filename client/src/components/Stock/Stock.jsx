@@ -29,21 +29,22 @@ const Stock = () => {
         <thead>
           <tr>
             <th>Producto</th>
+            <th>Color</th>
             <th>Unidades</th>
-            <th>Modificar</th>
+            <th>Comentario</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {productos?.map(({ tipo, unidades }) => {
+          {productos?.map(({ tipo, color, unidades, comentario }) => {
             return (
               <tr>
                 <td>{tipo}</td>
+                <td>{color}</td>
                 <td>{unidades}</td>
+                <td>{comentario}</td>
                 <td>
-                  <div className={style.modificar}>
-                    <button className={style.button}>+</button>
-                    <button className={style.button}>-</button>
-                  </div>
+                  <button className={style.button}>Actualizar</button>
                 </td>
               </tr>
             );

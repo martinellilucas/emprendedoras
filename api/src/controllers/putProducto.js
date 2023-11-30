@@ -1,10 +1,10 @@
 const { Producto } = require("../db");
 
-const putProducto = async (id, tipo, unidades) => {
+const putProducto = async (userid, id, unidades) => {
   const producto = await Producto.findOne({
     where: {
-      UsuarioId: id,
-      tipo: tipo,
+      UsuarioId: userid,
+      id: id,
     },
   });
   const cuenta = parseInt(producto.unidades) + parseInt(unidades);

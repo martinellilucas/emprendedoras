@@ -12,9 +12,15 @@ module.exports = (sequelize) => {
       unique: true,
       allowNull: false,
     },
+    color: {
+      type: DataTypes.STRING,
+    },
     unidades: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    comentario: {
+      type: DataTypes.STRING,
     },
   });
 };
